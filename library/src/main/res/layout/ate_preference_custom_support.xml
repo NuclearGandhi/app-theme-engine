@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:baselineAligned="false"
-    android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal"
-    android:paddingEnd="?android:attr/scrollbarSize"
-    android:paddingRight="?android:attr/scrollbarSize"
-    android:background="?android:attr/selectableItemBackground"
-    tools:ignore="RtlSymmetry,UnusedAttribute">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:attr/selectableItemBackground"
+              android:baselineAligned="false"
+              android:gravity="center_vertical"
+              android:minHeight="?android:attr/listPreferredItemHeight"
+              android:orientation="horizontal"
+              android:paddingEnd="16dp"
+              android:paddingRight="16dp"
+              tools:ignore="RtlSymmetry,UnusedAttribute">
 
     <ImageView
         android:id="@+android:id/icon"
@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/ate_preference_inset"
         android:layout_marginStart="@dimen/ate_preference_inset"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"/>
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -44,7 +44,7 @@
             android:fontFamily="sans-serif"
             android:singleLine="true"
             android:textSize="@dimen/ate_default_textsize_subheading"
-            tools:text="Title" />
+            tools:text="Title"/>
 
         <com.afollestad.appthemeengine.inflation.ATESecondaryTextView
             android:id="@android:id/summary"
@@ -57,7 +57,7 @@
             android:fontFamily="sans-serif"
             android:maxLines="4"
             android:textSize="@dimen/ate_default_textsize_body"
-            tools:text="Summary" />
+            tools:text="Summary"/>
 
     </RelativeLayout>
 
@@ -68,6 +68,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="end|center_vertical"
         android:gravity="center_vertical"
-        android:orientation="vertical" />
+        android:orientation="vertical"/>
 
 </LinearLayout><!-- From: file:/home/jitpack/build/commons/src/main/res/layout/md_preference_custom.xml -->
