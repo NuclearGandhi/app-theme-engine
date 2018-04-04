@@ -6,11 +6,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.Config;
+import com.afollestad.appthemeengine.R;
 import com.afollestad.appthemeengine.util.ATEUtil;
 
 /**
@@ -92,6 +94,12 @@ public abstract class TagProcessor {
             case SECONDARY_TEXT_COLOR_INVERSE:
                 result = Config.textColorSecondaryInverse(context, key);
                 break;
+            case ICON_COLOR: {
+                final int dependentColor = ATEUtil.resolveColor(context, android.R.attr.windowBackground);
+                isDark = !ATEUtil.isColorLight(dependentColor);
+                result = ContextCompat.getColor(context, isDark ? R.color.ate_icon_dark : R.color.ate_icon_light);
+                break;
+            }
 
             case PARENT_DEPENDENT: {
                 if (view.getParent() == null) {
@@ -162,6 +170,7 @@ public abstract class TagProcessor {
     protected static final String PRIMARY_TEXT_COLOR_INVERSE = "primary_text_inverse";
     protected static final String SECONDARY_TEXT_COLOR = "secondary_text";
     protected static final String SECONDARY_TEXT_COLOR_INVERSE = "secondary_text_inverse";
+    protected static final String ICON_COLOR = "icon_color";
 
     protected static final String PARENT_DEPENDENT = "parent_dependent";
     protected static final String PRIMARY_COLOR_DEPENDENT = "primary_color_dependent";

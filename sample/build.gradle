@@ -23,13 +23,13 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:27.1.0'
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
         transitive = true
     }
-    compile('com.github.afollestad.material-dialogs:commons:0.8.5.4@aar') {
+    implementation('com.github.afollestad.material-dialogs:commons:0.8.5.4@aar') {
         transitive = true
     }
-    compile 'com.android.support:design:27.1.0'
-    compile project(path: ':library')
+    implementation 'com.android.support:design:27.1.0'
+    implementation project(path: ':library')
 }
