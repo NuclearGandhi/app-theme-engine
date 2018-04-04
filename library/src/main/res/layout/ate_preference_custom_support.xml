@@ -17,8 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/ate_preference_inset"
-        android:layout_marginStart="@dimen/ate_preference_inset"
         android:tag="tint|icon_color"
         tools:ignore="ContentDescription" />
 
@@ -34,7 +32,7 @@
         android:layout_marginTop="12dip"
         android:layout_weight="1">
 
-        <com.afollestad.appthemeengine.inflation.ATEPrimaryTextView
+        <TextView
             android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,10 +42,11 @@
             android:fadingEdge="horizontal"
             android:fontFamily="sans-serif"
             android:singleLine="true"
+            android:tag="text_color|primary"
             android:textSize="@dimen/ate_default_textsize_subheading"
             tools:text="Title" />
 
-        <com.afollestad.appthemeengine.inflation.ATESecondaryTextView
+        <TextView
             android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,6 +56,7 @@
             android:layout_marginTop="2dp"
             android:fontFamily="sans-serif"
             android:maxLines="4"
+            android:tag="text_color|secondary"
             android:textSize="@dimen/ate_default_textsize_body"
             tools:text="Summary" />
 
