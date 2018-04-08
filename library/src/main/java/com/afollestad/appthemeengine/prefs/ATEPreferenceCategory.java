@@ -20,22 +20,30 @@ public class ATEPreferenceCategory extends PreferenceCategory {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ATEPreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init();
         mAteKey = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ATEPreferenceCategory, 0, 0).getString(R.styleable.ATEPreferenceCategory_ateKey_prefCategory_textColor);
     }
 
     public ATEPreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
         mAteKey = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ATEPreferenceCategory, 0, 0).getString(R.styleable.ATEPreferenceCategory_ateKey_prefCategory_textColor);
     }
 
     public ATEPreferenceCategory(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
         mAteKey = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ATEPreferenceCategory, 0, 0).getString(R.styleable.ATEPreferenceCategory_ateKey_prefCategory_textColor);
     }
 
     public ATEPreferenceCategory(Context context, String ateKey) {
         super(context);
+        init();
         this.mAteKey = ateKey;
+    }
+
+    private void init() {
+        setLayoutResource(R.layout.ate_preference_category);
     }
 
     @Override

@@ -36,6 +36,6 @@ public class ATEPreference extends Preference {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        setLayoutResource(R.layout.ate_preference_custom_support);
+        setLayoutResource(R.layout.ate_preference);
     }
 }

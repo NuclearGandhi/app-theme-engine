@@ -40,7 +40,7 @@ public class ATEPreference extends Preference {
     private String mKey;
 
     private void init(Context context, AttributeSet attrs) {
-        setLayoutResource(R.layout.ate_preference_custom);
+        setLayoutResource(R.layout.ate_preference);
 
         if (attrs != null) {
             TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ATEPreference, 0, 0);

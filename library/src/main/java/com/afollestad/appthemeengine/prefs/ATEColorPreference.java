@@ -37,7 +37,7 @@ public class ATEColorPreference extends Preference {
     private String mKey;
 
     private void init(Context context, AttributeSet attrs) {
-        setLayoutResource(R.layout.ate_preference_custom);
+        setLayoutResource(R.layout.ate_preference);
         setWidgetLayoutResource(R.layout.ate_preference_color);
         setPersistent(false);
 

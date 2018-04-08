@@ -36,7 +36,7 @@ public class ATESwitchPreference extends CheckBoxPreference {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        setLayoutResource(R.layout.ate_preference_custom_support);
+        setLayoutResource(R.layout.ate_preference);
         setWidgetLayoutResource(R.layout.ate_preference_switch_support);
     }
 }

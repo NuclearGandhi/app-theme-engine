@@ -45,7 +45,7 @@ public class ATESwitchPreference extends SwitchPreference {
     private ATESwitch mSwitch;
 
     private void init(Context context, AttributeSet attrs) {
-        setLayoutResource(R.layout.ate_preference_custom);
+        setLayoutResource(R.layout.ate_preference);
         setWidgetLayoutResource(R.layout.ate_preference_switch);
 
         if (attrs != null) {
