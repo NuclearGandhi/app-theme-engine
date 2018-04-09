@@ -45,7 +45,7 @@ public class ATEPreferenceCategory extends PreferenceCategory {
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
         TextView mTitle = (TextView) holder.itemView;
-        mTitle.setTextColor(Config.accentColor(getContext(), null));
+        mTitle.setTextColor(Config.accentColor(getContext(), mAteKey));
         ATE.themeView(holder.itemView, mAteKey);
     }
 }

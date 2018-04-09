@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -38,11 +39,16 @@ public class TextSizeDialog extends DialogFragment implements MaterialDialog.Sin
 
     public static void show(@NonNull Activity context, @NonNull @Config.TextSizeMode String textSizeMode,
                             @Nullable String ateKey, @StringRes int title, boolean recreateOnApply) {
+        show(context, textSizeMode, ateKey, context.getString(title), recreateOnApply);
+    }
+
+    public static void show(@NonNull Activity context, @NonNull @Config.TextSizeMode String textSizeMode,
+                            @Nullable String ateKey, CharSequence title, boolean recreateOnApply) {
         TextSizeDialog dialog = new TextSizeDialog();
         Bundle args = new Bundle();
         args.putString(KEY_MODE, textSizeMode);
         args.putString(KEY_ATEKEY, ateKey);
-        args.putInt(KEY_TITLE, title);
+        args.putCharSequence(KEY_TITLE, title);
         args.putBoolean(KEY_RECREATE, recreateOnApply);
         dialog.setArguments(args);
         dialog.show(context.getFragmentManager(), TAG);
@@ -53,6 +59,11 @@ public class TextSizeDialog extends DialogFragment implements MaterialDialog.Sin
     }
 
     public static int pxToSp(Fragment context, int px) {
+        float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (px / scaledDensity);
+    }
+
+    public static int pxToSp(android.support.v4.app.Fragment context, int px) {
         float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (px / scaledDensity);
     }

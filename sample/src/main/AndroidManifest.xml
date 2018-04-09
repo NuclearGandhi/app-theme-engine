@@ -38,6 +38,10 @@
             android:name=".SettingsActivity"
             android:label="@string/settings"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".SupportSettingsActivity"
+            android:label="@string/support_settings"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".widgets.WidgetActivity"></activity>
     </application>
 

@@ -103,6 +103,9 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
                     case R.id.drawer_settings:
                         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                         break;
+                    case R.id.drawer_support_settings:
+                        startActivity(new Intent(MainActivity.this, SupportSettingsActivity.class));
+                        break;
                     case R.id.drawer_about:
                         AboutDialog.show(MainActivity.this);
                         break;

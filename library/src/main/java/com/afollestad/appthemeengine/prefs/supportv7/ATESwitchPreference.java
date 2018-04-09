@@ -44,7 +44,7 @@ public class ATESwitchPreference extends CheckBoxPreference {
 
     private void init(Context context, AttributeSet attrs) {
         setLayoutResource(R.layout.ate_preference);
-        setWidgetLayoutResource(R.layout.ate_preference_switch_support);
+        setWidgetLayoutResource(R.layout.ate_preference_switch);
 
         if (attrs != null) {
             TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ATESwitchPreference, 0, 0);
