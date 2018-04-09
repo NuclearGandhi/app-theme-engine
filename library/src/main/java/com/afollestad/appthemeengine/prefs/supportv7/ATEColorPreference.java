@@ -1,11 +1,13 @@
 package com.afollestad.appthemeengine.prefs.supportv7;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.R;
 import com.afollestad.appthemeengine.prefs.BorderCircleView;
 
@@ -13,6 +15,8 @@ import com.afollestad.appthemeengine.prefs.BorderCircleView;
  * @author Aidan Follestad (afollestad)
  */
 public class ATEColorPreference extends Preference {
+
+    private String mKey;
 
     private View mView;
     private int color;
@@ -38,12 +42,22 @@ public class ATEColorPreference extends Preference {
         setLayoutResource(R.layout.ate_preference);
         setWidgetLayoutResource(R.layout.ate_preference_color);
         setPersistent(false);
+
+        if (attrs != null) {
+            TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ATEColorPreference, 0, 0);
+            try {
+                mKey = a.getString(R.styleable.ATEColorPreference_ateKey_pref_color);
+            } finally {
+                a.recycle();
+            }
+        }
     }
 
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
         mView = holder.itemView;
+        ATE.themeView(holder.itemView, mKey);
         invalidateColor();
     }
 
