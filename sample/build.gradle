@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     lintOptions {
         abortOnError false
@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.afollestad.appthemeenginesample"
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 3
         versionName "1.0.0"
     }
@@ -23,14 +23,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.android.support:preference-v7:27.1.0'
-    implementation('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
-        transitive = true
-    }
-    implementation('com.github.afollestad.material-dialogs:commons:0.8.5.4@aar') {
-        transitive = true
-    }
-    implementation 'com.android.support:design:27.1.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:preference-v7:28.0.0'
+
+    // Used for the preference classes
+    implementation 'com.github.afollestad.material-dialogs:core:0.8.5.4@aar'
+    implementation 'com.github.afollestad.material-dialogs:commons:0.8.5.4@aar'
     implementation project(path: ':library')
 }
