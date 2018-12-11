@@ -3,6 +3,7 @@ package com.afollestad.appthemeengine.viewprocessors;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
@@ -147,16 +148,16 @@ public class ToolbarProcessor implements ViewProcessor<Toolbar, Menu> {
             mMenu = menu;
 
             try {
-                final Field textHelperField = CollapsingToolbarLayout.class.getDeclaredField("mCollapsingTextHelper");
+                final Field textHelperField = CollapsingToolbarLayout.class.getDeclaredField("collapsingTextHelper");
                 textHelperField.setAccessible(true);
                 mCollapsingTextHelper = textHelperField.get(mCollapsingToolbar);
                 final Class<?> textHelperCls = mCollapsingTextHelper.getClass();
-                mExpandedTextColorField = textHelperCls.getDeclaredField("mExpandedTextColor");
+                mExpandedTextColorField = textHelperCls.getDeclaredField("expandedTextColor");
                 mExpandedTextColorField.setAccessible(true);
-                mCollapsedTextColorField = textHelperCls.getDeclaredField("mCollapsedTextColor");
+                mCollapsedTextColorField = textHelperCls.getDeclaredField("collapsedTextColor");
                 mCollapsedTextColorField.setAccessible(true);
 
-                mLastInsetsField = CollapsingToolbarLayout.class.getDeclaredField("mLastInsets");
+                mLastInsetsField = CollapsingToolbarLayout.class.getDeclaredField("lastInsets");
                 mLastInsetsField.setAccessible(true);
 
             } catch (Exception e) {
@@ -192,7 +193,8 @@ public class ToolbarProcessor implements ViewProcessor<Toolbar, Menu> {
             if (mContext instanceof ATECollapsingTbCustomizer)
                 return mExpandedColor;
             try {
-                return mExpandedTextColorField.getInt(mCollapsingTextHelper);
+                ColorStateList stateList = (ColorStateList) mExpandedTextColorField.get(mCollapsingTextHelper);
+                return stateList.getDefaultColor();
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
                 return Color.WHITE;
@@ -203,7 +205,8 @@ public class ToolbarProcessor implements ViewProcessor<Toolbar, Menu> {
             if (mContext instanceof ATECollapsingTbCustomizer)
                 return mCollapsedColor;
             try {
-                return mCollapsedTextColorField.getInt(mCollapsingTextHelper);
+                ColorStateList stateList = (ColorStateList) mCollapsedTextColorField.get(mCollapsingTextHelper);
+                return stateList.getDefaultColor();
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
                 return Color.WHITE;

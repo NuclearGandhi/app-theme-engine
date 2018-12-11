@@ -14,6 +14,8 @@ import com.afollestad.appthemeengine.R;
  */
 public class ATEColorPreference extends Preference {
 
+    private String mKey;
+
     private View mView;
     private int color;
     private int border;
@@ -33,8 +35,6 @@ public class ATEColorPreference extends Preference {
         init(context, attrs);
 
     }
-
-    private String mKey;
 
     private void init(Context context, AttributeSet attrs) {
         setLayoutResource(R.layout.ate_preference);
@@ -67,7 +67,7 @@ public class ATEColorPreference extends Preference {
 
     private void invalidateColor() {
         if (mView != null) {
-            BorderCircleView circle = (BorderCircleView) mView.findViewById(R.id.circle);
+            BorderCircleView circle = mView.findViewById(R.id.circle);
             if (this.color != 0) {
                 circle.setVisibility(View.VISIBLE);
                 circle.setBackgroundColor(color);
